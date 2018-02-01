@@ -29,6 +29,7 @@ for $file at $pos in xdmp:get-request-field("upload")
 		case "application/octet-stream"
 			return switch ($extension)
 			case "gpx"
+			case "xbrl"
 				return xdmp:document-insert($filename,xdmp:unquote(xdmp:quote(binary{xs:hexBinary($file)})))
 			default
 				return xdmp:document-insert($filename,$file)
